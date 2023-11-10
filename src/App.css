@@ -12,6 +12,94 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.todo-board {
+  padding: 20px;
+}
+
+.flex-container {
+  display: flex;
+  border: black;
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+}
+
+.todo-list {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  overflow: hidden; /* Prevent borders from wrapping around content */
+}
+.card-detail {
+  display: flex;
+  gap: 5px;
+}
+.task-card {
+  /* existing styles */
+
+  /* Ensure child elements are displayed in a row */
+  display: flex;
+  flex-direction: column;
+}
+
+.task-content {
+  /* Ensure child elements are displayed in a row */
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.task-table th,
+.task-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.add-task {
+  margin-top: 10px;
+  display: flex;
+}
+
+.add-task input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 5px;
+}
+
+.add-category {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the right */
+}
+
+.add-category input {
+  padding: 8px;
+  margin-bottom: 5px;
+}
+
+.category-box {
+  padding: 10px;
+  border-radius: 8px;
+}
+
+button {
+  padding: 8px;
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
 
 .App-header {
   background-color: #282c34;
