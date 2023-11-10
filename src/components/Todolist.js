@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TaskCard from "./TaskCard";
 import { v4 as uuidv4 } from "uuid";
 
@@ -10,9 +10,12 @@ const TodoList = ({
   onDrop,
   taskCount,
 }) => {
-  const addTask = (newTask) => {
-    const newTaskWithId = { task: newTask, taskId: uuidv4() };
+  const [newTaskInput, setNewTaskInput] = useState("");
+
+  const addTask = () => {
+    const newTaskWithId = { task: newTaskInput, taskId: uuidv4() };
     onAddTask(category, newTaskWithId);
+    setNewTaskInput(""); // Clear input field after adding the task
   };
 
   const handleDragStart = (e, taskId) => {
@@ -58,14 +61,18 @@ const TodoList = ({
       <div className="add-task">
         <input
           type="text"
+          value={newTaskInput}
           placeholder={`Add a new ${category.toLowerCase()} task...`}
+          onChange={(e) => setNewTaskInput(e.target.value)}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
-              addTask(e.target.value);
-              e.target.value = "";
+              addTask();
             }
           }}
         />
+        <button onClick={addTask} className="mobile-add-button">
+          Add Task
+        </button>
       </div>
     </div>
   );
